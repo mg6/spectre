@@ -12,8 +12,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{3BD3D898-F14B-4129-BAE5-6E3E83E9D982}</ProjectGuid>
-    <RootNamespace>SpectrelibSpectrumProcessing</RootNamespace>
+    <ProjectGuid>{76542909-5FC8-405B-8E6D-D2E529162A7A}</ProjectGuid>
+    <RootNamespace>SpectrelibPlatform</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -44,23 +44,26 @@
     <Import Project="..\PropertySheets\NativeProject.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -68,22 +71,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DataTypes.h" />
-    <ClInclude Include="DaubechiesFiltersDenoiser.h" />
-    <ClInclude Include="MeanAbsoluteDeviationNoiseEstimator.h" />
-    <ClInclude Include="PrecomputedDaubechiesCoefficients.h" />
-    <ClInclude Include="RationalTransferFunction.h" />
-    <ClInclude Include="SoftThresholder.h" />
-    <ClInclude Include="WaveletDecomposer.h" />
-    <ClInclude Include="WaveletReconstructor.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="DaubechiesFiltersDenoiser.cpp" />
-    <ClCompile Include="MeanAbsoluteDeviationNoiseEstimator.cpp" />
-    <ClCompile Include="RationalTransferFunction.cpp" />
-    <ClCompile Include="SoftThresholder.cpp" />
-    <ClCompile Include="WaveletDecomposer.cpp" />
-    <ClCompile Include="WaveletReconstructor.cpp" />
+    <ClInclude Include="Functional.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
